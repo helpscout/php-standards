@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<ruleset name="HelpScout">
+ <description>The Help Scout Coding Standard.</description>
+
+ <!-- Include PSR standards -->
+ <rule ref="PSR1"/>
+ <rule ref="PSR2"/>
+
+ <!-- Include some specific sniffs -->
+ <rule ref="Generic.CodeAnalysis.EmptyStatement"/>
+ <rule ref="Generic.Commenting.Todo"/>
+ <rule ref="Generic.ControlStructures.InlineControlStructure"/>
+ <rule ref="Generic.Formatting.DisallowMultipleStatements"/>
+ <rule ref="Generic.Formatting.SpaceAfterCast"/>
+ <rule ref="Generic.Functions.FunctionCallArgumentSpacing"/>
+ <rule ref="Generic.NamingConventions.ConstructorName"/>
+ <rule ref="Generic.NamingConventions.UpperCaseConstantName"/>
+ <rule ref="Generic.PHP.DeprecatedFunctions"/>
+ <rule ref="Generic.PHP.DisallowShortOpenTag"/>
+ <rule ref="Generic.PHP.LowerCaseConstant"/>
+ <rule ref="Generic.PHP.LowerCaseKeyword"/>
+ <rule ref="Generic.Strings.UnnecessaryStringConcat"/>
+ <rule ref="Generic.WhiteSpace.DisallowTabIndent"/>
+ <rule ref="Generic.WhiteSpace.ScopeIndent"/>
+ <rule ref="PEAR.ControlStructures.MultiLineCondition"/>
+ <rule ref="PEAR.Files.IncludingFile"/>
+ <rule ref="PEAR.Formatting.MultiLineAssignment"/>
+ <rule ref="PEAR.Functions.ValidDefaultValue"/>
+ <rule ref="PSR2.Files.EndFileNewline"/>
+ <rule ref="Squiz.Commenting.FunctionCommentThrowTag"/>
+ <rule ref="Squiz.Commenting.VariableComment"/>
+ <rule ref="Squiz.NamingConventions.ValidVariableName"/>
+ <rule ref="Squiz.PHP.CommentedOutCode"/>
+ <rule ref="Zend.Debug.CodeAnalyzer"/>
+ <rule ref="Zend.Files.ClosingTag"/>
+
+ <!-- Add additional Help Scout sniffs -->
+ <rule ref="HelpScout.Functions.DisallowXDebug"/>
+
+ <!-- Allow us to use the compact phpdoc format -->
+ <rule ref="Generic.Commenting.DocComment">
+  <exclude name="Generic.Commenting.DocComment.MissingShort"/>
+ </rule>
+
+ <!-- Allow an exception to concat rules for long line lengths -->
+ <rule ref="Generic.Strings.UnnecessaryStringConcat">
+  <properties>
+   <property name="allowMultiline" value="true"/>
+  </properties>
+ </rule>
+
+ <!-- Controllers Violate PSR0 -->
+ <rule ref="PSR1.Classes.ClassDeclaration">
+  <exclude-pattern>*/controllers/*</exclude-pattern>
+ </rule>
+ <rule ref="PSR1.Files.SideEffects">
+  <exclude-pattern>*/controllers/*</exclude-pattern>
+ </rule>
+
+ <!-- Tests Violate PSR0 -->
+ <rule ref="PSR1.Classes.ClassDeclaration">
+  <exclude-pattern>test/*</exclude-pattern>
+ </rule>
+
+ <!-- Lines can be 120 chars long, but never show errors -->
+ <rule ref="Generic.Files.LineLength">
+  <properties>
+   <property name="lineLimit" value="80"/>
+   <property name="absoluteLineLimit" value="120"/>
+  </properties>
+ </rule>
+
+ <!-- Use Unix newlines -->
+ <rule ref="Generic.Files.LineEndings">
+  <properties>
+   <property name="eolChar" value="\n"/>
+  </properties>
+ </rule>
+
+ <!-- Have 20 chars padding maximum and always show as errors -->
+ <rule ref="Generic.Formatting.MultipleStatementAlignment">
+  <properties>
+   <property name="maxPadding" value="20"/>
+   <property name="error" value="true"/>
+  </properties>
+ </rule>
+
+ <!-- We allow empty catch statements -->
+ <rule ref="Generic.CodeAnalysis.EmptyStatement.DetectedCATCH">
+  <severity>0</severity>
+ </rule>
+
+ <!-- Only one argument per line in multi-line function calls -->
+ <rule ref="PEAR.Functions.FunctionCallSignature">
+  <properties>
+   <property name="allowMultipleArguments" value="false"/>
+  </properties>
+ </rule>
+
+ <!-- Make sure that each parameter is included in the doc block -->
+ <rule ref="Squiz.Commenting.FunctionComment">
+  <exclude name="Squiz.Commenting.FunctionComment.EmptyThrows"/>
+  <exclude name="Squiz.Commenting.FunctionComment.Missing"/>
+  <exclude name="Squiz.Commenting.FunctionComment.MissingParamComment"/>
+  <exclude name="Squiz.Commenting.FunctionComment.ParamCommentFullStop"/>
+  <exclude name="Squiz.Commenting.FunctionComment.ParamCommentNotCapital"/>
+ </rule>
+
+</ruleset>
