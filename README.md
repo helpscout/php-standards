@@ -1,4 +1,4 @@
-# Help Scout PHP Code Standards
+Help Scout PHP Code Standards
 ================================================================================
 > Writing high quality, durable, and maintainable code
 
