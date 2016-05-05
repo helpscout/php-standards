@@ -1,6 +1,6 @@
 # Help Scout PHP Code Standards
 ================================================================================
->
+> Writing high quality, durable, and maintainable code
 
 This repository includes the [Help Scout][dev] coding standard definition for [PHP Codesniffer][phpcs] and resources. The PHP_CodeSniffer standard will never be 100% accurate, but should be viewed as a strong set of guidelines while writing software at Help Scout.
 
