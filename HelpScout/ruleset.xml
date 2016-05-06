@@ -27,12 +27,21 @@
  <rule ref="PEAR.Formatting.MultiLineAssignment"/>
  <rule ref="PEAR.Functions.ValidDefaultValue"/>
  <rule ref="PSR2.Files.EndFileNewline"/>
- <rule ref="Squiz.Commenting.FunctionCommentThrowTag"/>
  <rule ref="Squiz.Commenting.VariableComment"/>
- <rule ref="Squiz.NamingConventions.ValidVariableName"/>
  <rule ref="Squiz.PHP.CommentedOutCode"/>
  <rule ref="Zend.Debug.CodeAnalyzer"/>
  <rule ref="Zend.Files.ClosingTag"/>
+
+ <!-- We prefer not to use underscores on private properties -->
+ <rule ref="Squiz.NamingConventions.ValidVariableName">
+  <exclude name="Squiz.NamingConventions.ValidVariableName.PrivateNoUnderscore"/>
+ </rule>
+
+ <!-- PHPStorm prefers throws annotations from deeper code as well, this causes
+      the number in the method and the number in the phpdoc to mismatch -->
+ <rule ref="Squiz.Commenting.FunctionCommentThrowTag">
+  <exclude name="Squiz.Commenting.FunctionCommentThrowTag.WrongNumber"/>
+ </rule>
 
  <!-- Add additional Help Scout sniffs -->
  <rule ref="HelpScout.Functions.DisallowXDebug"/>
