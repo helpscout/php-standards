@@ -106,13 +106,16 @@
   </properties>
  </rule>
 
- <!-- Make sure that each parameter is included in the doc block -->
+ <!-- Relaxing several commenting sniffs from Squiz -->
  <rule ref="Squiz.Commenting.FunctionComment">
+  <!-- Make sure that each parameter is included in the doc block -->
   <exclude name="Squiz.Commenting.FunctionComment.EmptyThrows"/>
   <exclude name="Squiz.Commenting.FunctionComment.Missing"/>
   <exclude name="Squiz.Commenting.FunctionComment.MissingParamComment"/>
   <exclude name="Squiz.Commenting.FunctionComment.ParamCommentFullStop"/>
   <exclude name="Squiz.Commenting.FunctionComment.ParamCommentNotCapital"/>
+  <!-- Not ready for PHP7 full time yet -->
+  <exclude name="Squiz.Commenting.FunctionComment.ScalarTypeHintMissing"/>
  </rule>
 
 </ruleset>
