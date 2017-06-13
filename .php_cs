@@ -6,39 +6,43 @@
  *
  * We base the code style on PSR2, with the additional `$fixers`
  *
+ * @link https://github.com/FriendsOfPHP/PHP-CS-Fixer/blob/4fac6225fd9c254e04e7cbe3a99bb257c966b97d/src/RuleSet.php#L56
+ *
  */
-$fixers = array(
-    '-psr0',                              // Remove PSR0 filter, our Sumo files don't match namespace with path
-    'double_arrow_multiline_whitespaces', // [symfony] Operator => should not be arounded by multi-line whitespaces.
-    'duplicate_semicolon',                // [symfony] Remove duplicated semicolons.
-    'empty_return',                       // [symfony] A return statement returning nothing should be simply "return".
-    'extra_empty_lines',                  // [symfony] Removes extra empty lines.
-    'include',                            // [symfony] Include and file path should be divided with a single space.
-    'namespace_no_leading_whitespace',    // [symfony] The namespace declaration shouldn't contain leading whitespace.
-    'new_with_braces',                    // [symfony] All instances created with `new` must be followed by braces.
-    'object_operator',                    // [symfony] There should not be space before or after object `->`.
-    'operators_spaces',                   // [symfony] Operators should be arounded by at least one space.
-    'remove_leading_slash_use',           // [symfony] Remove leading slashes in use clauses.
-    'remove_lines_between_uses',          // [symfony] Removes line breaks between use statements.
-    'return',                             // [symfony] An empty line feed should precede a return statement.
-    'single_array_no_trailing_comma',     // [symfony] PHP single-line arrays should not have trailing comma.
-    'spaces_before_semicolon',            // [symfony] Single-line whitespace before closing semicolon are prohibited.
-    'spaces_cast',                        // [symfony] A single space should be between cast and variable.
-    'ternary_spaces',                     // [symfony] Standardize spaces around ternary operator.
-    'unused_use',                         // [symfony] Unused use statements must be removed.
-    'whitespacy_lines',                   // [symfony] Remove trailing whitespace at the end of blank lines.
-    'align_double_arrow',                 // [contrib] Align double arrow symbols in consecutive lines.
-    'align_equals',                       // [contrib] Align equals symbols in consecutive lines.
-    'concat_with_spaces',                 // [contrib] Concatenation should be used with at least one whitespace around.
-    'multiline_spaces_before_semicolon',  // [contrib] Multi-line whitespace before closing semicolon are prohibited.
-    'ordered_use',                        // [contrib] Ordering use statements.
-    'short_array_syntax',                 // [contrib] PHP array's should use the PHP 5.4 short-syntax.
-    'indentation',                        // [PSR-2] Code MUST use an indent of 4 spaces, and MUST NOT use tabs for indenting.
-);
+$fixers = [
+    '@PSR2'                                       => true,
+    'psr0'                                        => false, // Remove PSR0 filter, our Sumo files don't match namespace with path
+    'array_syntax'                                => [      // [contrib] PHP array's should use the PHP 5.4 short-syntax.
+        'syntax' => 'short'
+    ],
+    'binary_operator_spaces'                      => [      // Binary operators should be surrounded by at least one space.
+        'align_double_arrow' => true,
+        'align_equals'       => true,
+    ],
+    'blank_line_before_return'                    => true,  // An empty line feed should precede a return statement.
+    'cast_spaces'                                 => true,  // A single space should be between cast and variable.
+    'include'                                     => true,  // Include and file path should be divided with a single space.
+    'indentation_type'                            => true,  // Code MUST use an indent of 4 spaces, and MUST NOT use tabs for indenting
+    'no_closing_tag'                              => true,  // The closing tag MUST be omitted from files containing only PHP.
+    'no_multiline_whitespace_around_double_arrow' => true,  // Operator => should not be surrounded by multi-line whitespaces
+    'no_spaces_after_function_name'               => true,  // When making a method or function call, there MUST NOT be a space between the method or function name and the opening parenthesis.
+    'no_spaces_inside_parenthesis'                => true,  // There MUST NOT be a space after the opening parenthesis. There MUST NOT be a space before the closing parenthesis.
+    'no_trailing_comma_in_list_call'              => true,  // Remove trailing commas in list function calls
+    'no_trailing_comma_in_singleline_array'       => true,  // PHP single-line arrays should not have trailing comma.
+    'no_trailing_whitespace'                      => true,  // Remove trailing whitespace at the end of blank lines.
+    'ordered_imports'                             => true,  // Ordering use statements.
+    'short_scalar_cast'                           => true,  // Cast (boolean) and (integer) should be written as (bool) and (int), (double) and (real) as (float).
+    'single_blank_line_at_eof'                    => true,  // A PHP file without end tag must always end with a single empty line feed.
+    'single_import_per_statement'                 => true,  // There MUST be one use keyword per declaration.
+    'single_line_after_imports'                   => true,  // Each namespace use MUST go on its own line and there MUST be one blank line after the use statements block.
+    'switch_case_space'                           => true,  // Removes extra spaces between colon and case value.
+    'ternary_operator_spaces'                     => true,  // Standardize spaces around ternary operator.
+];
 
-$finder = Symfony\CS\Finder\DefaultFinder::create();
+$finder = PhpCsFixer\Finder::create();
 
-return Symfony\CS\Config\Config::create()
-    ->level(Symfony\CS\FixerInterface::PSR2_LEVEL)
-    ->fixers($fixers)
-    ->finder($finder);
+return PhpCsFixer\Config::create()
+    ->setUsingCache(true)
+    ->setCacheFile('/hs-app/.php_cs.cache')
+    ->setRules($fixers)
+    ->setFinder($finder);

@@ -1,15 +1,16 @@
 <?php
 /**
- * This sniff prohibits the use of xdebug functions
+ * This sniff prohibits the use of xdebug functions in production code
  *
  * @author     Platform Team <developer@helpscout.net>
  * @copyright  2015 Help Scout
  */
+use PHP_CodeSniffer\Standards\Generic\Sniffs\PHP\ForbiddenFunctionsSniff;
 
 /**
  * This sniff prohibits the use of xdebug functions
  */
-class HelpScout_Sniffs_Functions_DisallowXDebugSniff extends Generic_Sniffs_PHP_ForbiddenFunctionsSniff
+class HelpScout_Sniffs_Functions_DisallowXDebugSniff extends ForbiddenFunctionsSniff
 {
     public $forbiddenFunctions = [
         'var_dump'                      => null,

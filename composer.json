@@ -19,5 +19,11 @@
       "issues": "https://github.com/helpscout/php-standards/issues"
     },
     "minimum-stability": "dev",
-    "require": {}
+    "require": {},
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^3.0"
+    },
+    "scripts": {
+      "phpcs": "phpcs --standard=HelpScout --extensions=php examples"
+    }
 }

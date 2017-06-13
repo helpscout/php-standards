@@ -114,12 +114,6 @@
   <exclude name="Squiz.Commenting.FunctionComment.MissingParamComment"/>
   <exclude name="Squiz.Commenting.FunctionComment.ParamCommentFullStop"/>
   <exclude name="Squiz.Commenting.FunctionComment.ParamCommentNotCapital"/>
-  <!-- Not ready for PHP7 full time yet -->
-  <exclude name="Squiz.Commenting.FunctionComment.ScalarTypeHintMissing"/>
- </rule>
- <!-- Convert this to a warning, for linting PHP5 projects from PHP7 local -->
- <rule ref="Squiz.Commenting.FunctionComment.TypeHintMissing">
-  <message>If you are running PHP7, please consider this: %s</message>
-  <severity>3</severity>
+  <exclude name="Squiz.Commenting.FunctionComment.InvalidReturn"/>
  </rule>
 </ruleset>
