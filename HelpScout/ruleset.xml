@@ -115,5 +115,6 @@
   <exclude name="Squiz.Commenting.FunctionComment.ParamCommentFullStop"/>
   <exclude name="Squiz.Commenting.FunctionComment.ParamCommentNotCapital"/>
   <exclude name="Squiz.Commenting.FunctionComment.InvalidReturn"/>
+  <exclude name="Squiz.Commenting.FunctionComment.IncorrectParamVarName"/>
  </rule>
 </ruleset>
