@@ -46,11 +46,6 @@
  <!-- Add additional Help Scout sniffs -->
  <rule ref="HelpScout.Functions.DisallowXDebug"/>
 
- <!-- Allow us to use the compact phpdoc format -->
- <rule ref="Generic.Commenting.DocComment">
-  <exclude name="Generic.Commenting.DocComment.MissingShort"/>
- </rule>
-
  <!-- Allow an exception to concat rules for long line lengths -->
  <rule ref="Generic.Strings.UnnecessaryStringConcat">
   <properties>
