@@ -7,9 +7,7 @@
  <rule ref="PSR2"/>
 
  <!-- Include some specific sniffs -->
- <rule ref="Generic.Arrays.ArrayIndent"/>
  <rule ref="Generic.CodeAnalysis.EmptyStatement"/>
- <rule ref="Generic.Commenting.Todo"/>
  <rule ref="Generic.ControlStructures.InlineControlStructure"/>
  <rule ref="Generic.Formatting.DisallowMultipleStatements"/>
  <rule ref="Generic.Formatting.SpaceAfterCast"/>
@@ -24,7 +22,6 @@
  <rule ref="Generic.WhiteSpace.DisallowTabIndent"/>
  <rule ref="Generic.WhiteSpace.ScopeIndent"/>
  <rule ref="PEAR.ControlStructures.MultiLineCondition"/>
- <rule ref="PEAR.Files.IncludingFile"/>
  <rule ref="PEAR.Formatting.MultiLineAssignment"/>
  <rule ref="PEAR.Functions.ValidDefaultValue"/>
  <rule ref="PSR2.Files.EndFileNewline"/>
@@ -100,13 +97,16 @@
   <properties>
    <property name="allowMultipleArguments" value="false"/>
   </properties>
+  <exclude name="PEAR.Functions.FunctionCallSignature.ContentAfterOpenBracket"/>
+  <exclude name="PEAR.Functions.FunctionCallSignature.CloseBracketLine"/>
  </rule>
 
  <!-- Relaxing several commenting sniffs from Squiz -->
  <rule ref="Squiz.Commenting.FunctionComment">
-  <!-- Make sure that each parameter is included in the doc block -->
   <exclude name="Squiz.Commenting.FunctionComment.EmptyThrows"/>
   <exclude name="Squiz.Commenting.FunctionComment.Missing"/>
+  <exclude name="Squiz.Commenting.FunctionComment.MissingReturn"/>
+  <exclude name="Squiz.Commenting.FunctionComment.MissingParamTag"/>
   <exclude name="Squiz.Commenting.FunctionComment.MissingParamComment"/>
   <exclude name="Squiz.Commenting.FunctionComment.ParamCommentFullStop"/>
   <exclude name="Squiz.Commenting.FunctionComment.ParamCommentNotCapital"/>
