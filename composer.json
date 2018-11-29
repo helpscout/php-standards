@@ -21,7 +21,7 @@
     "minimum-stability": "dev",
     "require": {},
     "require-dev": {
-        "squizlabs/php_codesniffer": "^3.2"
+        "squizlabs/php_codesniffer": "^3.3"
     },
     "scripts": {
       "phpcs": "phpcs --standard=HelpScout --extensions=php examples"
