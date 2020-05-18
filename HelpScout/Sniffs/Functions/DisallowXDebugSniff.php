@@ -1,6 +1,6 @@
 <?php
 /**
- * This sniff prohibits the use of xdebug functions in production code
+ * Prohibits the use of xdebug functions in production code
  *
  * @author     Platform Team <developer@helpscout.net>
  * @copyright  2015 Help Scout
@@ -32,4 +32,3 @@ class HelpScout_Sniffs_Functions_DisallowXDebugSniff extends ForbiddenFunctionsS
     ];
 }
 
-/* End of file DisallowXDebugSniff.php */

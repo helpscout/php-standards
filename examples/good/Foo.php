@@ -1,24 +1,27 @@
 <?php
-/**
- * This is example code to confirm that the linter can run.
- */
 namespace Vendor\Package;
 
 use FooInterface;
 use BarClass as Bar;
 use OtherVendor\OtherPackage\BazClass;
 
+/**
+ * This is example code to confirm that the linter can run.
+ */
 class Foo extends Bar implements FooInterface
 {
-    public function sampleMethod($a, $b = null)
+    public function canHaveNoCommentIfTypeHinted(int $a, int $b = null): int
     {
         if ($a === $b) {
-            bar();
+            Bar();
         } elseif ($a > $b) {
-            $foo->bar($arg1);
+            $foo = new Foo();
+            $foo->bar($a);
         } else {
-            BazClass::bar($arg2, $arg3);
+            BazClass::bar($a, $b);
         }
+
+        return 6;
     }
 
     final public static function bar()
