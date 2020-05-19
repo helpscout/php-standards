@@ -7,7 +7,7 @@
 
     <!-- In files without a header comment, we don't want an extra newline -->
     <rule ref="PSR12.Files.FileHeader.SpacingAfterBlock">
-        <severity>0</severity>
+        <type>warning</type>
     </rule>
 
     <!-- Warn about statements that have no executable code. -->
