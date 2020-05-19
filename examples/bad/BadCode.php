@@ -6,7 +6,7 @@ use BarClass as Bar;
 use OtherVendor\OtherPackage\BazClass;
 
 /**
- * This code should display failures and
+ * This code should display failures when sniffed
  */
 class BadCode extends Bar implements FooInterface
 {

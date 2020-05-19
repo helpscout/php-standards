@@ -5,7 +5,7 @@ class CompactCode
 {
     public function __construct()
     {
-        smarty('path/to/template', [
+        \smarty('path/to/template', [
             'name' => 'John Smith',
             'age'  => 32,
         ]);
