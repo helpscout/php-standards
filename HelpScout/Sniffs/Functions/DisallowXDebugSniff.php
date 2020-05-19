@@ -1,15 +1,12 @@
 <?php
 /**
- * This sniff prohibits the use of xdebug functions in production code
+ * Prohibit the use of xdebug functions in production code
  *
  * @author     Platform Team <developer@helpscout.net>
  * @copyright  2015 Help Scout
  */
 use PHP_CodeSniffer\Standards\Generic\Sniffs\PHP\ForbiddenFunctionsSniff;
 
-/**
- * This sniff prohibits the use of xdebug functions
- */
 class HelpScout_Sniffs_Functions_DisallowXDebugSniff extends ForbiddenFunctionsSniff
 {
     public $forbiddenFunctions = [
@@ -31,5 +28,3 @@ class HelpScout_Sniffs_Functions_DisallowXDebugSniff extends ForbiddenFunctionsS
         'xdebug_time_index'             => null
     ];
 }
-
-/* End of file DisallowXDebugSniff.php */
