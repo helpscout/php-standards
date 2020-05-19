@@ -43,10 +43,16 @@
     <!-- Checks that control structures are defined and indented correctly. -->
     <rule ref="Generic.WhiteSpace.ScopeIndent"/>
 
+    <!-- Ensure multi-line IF conditions are defined correctly. -->
+    <rule ref="PEAR.ControlStructures.MultiLineCondition"/>
+
+    <!-- If an assignment goes over two lines, ensure the equal sign is indented. -->
+    <rule ref="PEAR.Formatting.MultiLineAssignment"/>
+
     <!-- Ensures function params with default values are at the end of the declaration. -->
     <rule ref="PEAR.Functions.ValidDefaultValue"/>
 
-    <!-- Ensures the file ends with a newline character. -->
+    <!-- Ensures the file ends with a newline character. Git prefers this. -->
     <rule ref="PSR2.Files.EndFileNewline"/>
 
     <!-- Parses and verifies the variable doc comment. -->
@@ -104,7 +110,7 @@
         </properties>
     </rule>
 
-    <!-- Have 20 chars padding maximum and always show as errors -->
+    <!-- Have 8 chars padding maximum and always show as errors -->
     <rule ref="Generic.Formatting.MultipleStatementAlignment">
         <properties>
             <property name="maxPadding" value="8"/>
@@ -146,6 +152,8 @@
         <!-- No need for Capitalization rules, we're not publishing docs -->
         <exclude name="Squiz.Commenting.FunctionComment.ParamCommentNotCapital"/>
         <!-- We occasionally need to lie about Doctrine returns types -->
+        <exclude name="Squiz.Commenting.FunctionComment.InvalidReturn"/>
+        <!-- We occasionally need to lie about Doctrine parameter types in the phpdocs -->
         <exclude name="Squiz.Commenting.FunctionComment.IncorrectParamVarName"/>
         <!-- We occasionally need to lie about Doctrine returns types -->
         <exclude name="Squiz.Commenting.FunctionComment.InvalidTypeHint"/>
