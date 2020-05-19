@@ -10,6 +10,11 @@
         <severity>0</severity>
     </rule>
 
+    <!-- Warn about statements that have no executable code. -->
+    <rule ref="Generic.CodeAnalysis.EmptyStatement">
+        <type>warning</type>
+    </rule>
+
     <!-- Verifies that inline control statements are not present. -->
     <rule ref="Generic.ControlStructures.InlineControlStructure"/>
 

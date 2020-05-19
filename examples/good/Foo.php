@@ -24,6 +24,16 @@ class Foo extends Bar implements FooInterface
         return 6;
     }
 
+    public function emptyStatementIsWarningNotError()
+    {
+        $i = 0;
+        if ($i < 5) {
+            $i++;
+        } else {
+            // This should warn and not fail.
+        }
+    }
+
     final public static function bar()
     {
         // method body
