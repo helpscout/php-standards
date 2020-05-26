@@ -1,13 +1,19 @@
 <?xml version="1.0"?>
 <ruleset name="HelpScout">
-    <description>The Help Scout Coding Standard.</description>
+    <description>The Help Scout PHP Coding Standard.</description>
 
-    <!-- Include PSR standards -->
-    <rule ref="PSR1"/>
-    <rule ref="PSR2"/>
+    <!-- Include PSR12 standards. -->
+    <rule ref="PSR12"/>
 
-    <!-- Include some specific sniffs -->
-    <rule ref="Generic.CodeAnalysis.EmptyStatement"/>
+    <!-- In files without a header comment, we don't want an extra newline -->
+    <rule ref="PSR12.Files.FileHeader.SpacingAfterBlock">
+        <type>warning</type>
+    </rule>
+
+    <!-- Warn about statements that have no executable code. -->
+    <rule ref="Generic.CodeAnalysis.EmptyStatement">
+        <type>warning</type>
+    </rule>
 
     <!-- Verifies that inline control statements are not present. -->
     <rule ref="Generic.ControlStructures.InlineControlStructure"/>
@@ -20,9 +26,6 @@
 
     <!-- Checks that calls to methods and functions are spaced correctly. -->
     <rule ref="Generic.Functions.FunctionCallArgumentSpacing"/>
-
-    <!-- Makes sure that shorthand PHP open tags are not used. -->
-    <rule ref="Generic.NamingConventions.ConstructorName"/>
 
     <!-- Ensures that constant names are all uppercase. -->
     <rule ref="Generic.NamingConventions.UpperCaseConstantName"/>
@@ -38,9 +41,6 @@
 
     <!-- Checks that all PHP keywords are lowercase. -->
     <rule ref="Generic.PHP.LowerCaseKeyword"/>
-
-    <!-- Checks that two strings are not concatenated together; suggests using one string instead. -->
-    <rule ref="Generic.Strings.UnnecessaryStringConcat"/>
 
     <!-- Throws errors if tabs are used for indentation. -->
     <rule ref="Generic.WhiteSpace.DisallowTabIndent"/>
@@ -61,13 +61,13 @@
     <rule ref="PSR2.Files.EndFileNewline"/>
 
     <!-- Parses and verifies the variable doc comment. -->
-    <rule ref="Squiz.Commenting.VariableComment"/>
+    <rule ref="Squiz.Commenting.VariableComment">
+        <!-- Omit the boolean and integer long form type names in hints. -->
+        <exclude name="Squiz.Commenting.VariableComment.IncorrectVarType"/>
+    </rule>
 
     <!-- Warn about commented out code. -->
     <rule ref="Squiz.PHP.CommentedOutCode"/>
-
-    <!-- Runs the Zend Code Analyzer (from Zend Studio) on the file. -->
-    <rule ref="Zend.Debug.CodeAnalyzer"/>
 
     <!-- Checks that the file does not end with a closing tag. -->
     <rule ref="Zend.Files.ClosingTag"/>
@@ -87,14 +87,7 @@
     <!-- Prohibit the use of xdebug functions in production code -->
     <rule ref="HelpScout.Functions.DisallowXDebug"/>
 
-    <!-- Allow an exception to concat rules for long line lengths -->
-    <rule ref="Generic.Strings.UnnecessaryStringConcat">
-        <properties>
-            <property name="allowMultiline" value="true"/>
-        </properties>
-    </rule>
-
-    <!-- Controllers Violate PSR0 -->
+    <!-- HS-APP Controllers Violate PSR0 -->
     <rule ref="PSR1.Classes.ClassDeclaration">
         <exclude-pattern>*/controllers/*</exclude-pattern>
     </rule>
@@ -102,7 +95,7 @@
         <exclude-pattern>*/controllers/*</exclude-pattern>
     </rule>
 
-    <!-- Tests Violate PSR0 -->
+    <!-- HS-APP Tests Violate PSR0 -->
     <rule ref="PSR1.Classes.ClassDeclaration">
         <exclude-pattern>test/*</exclude-pattern>
     </rule>
@@ -122,10 +115,10 @@
         </properties>
     </rule>
 
-    <!-- Have 20 chars padding maximum and always show as errors -->
+    <!-- Have 8 chars padding maximum and always show as errors -->
     <rule ref="Generic.Formatting.MultipleStatementAlignment">
         <properties>
-            <property name="maxPadding" value="20"/>
+            <property name="maxPadding" value="8"/>
             <property name="error" value="true"/>
         </properties>
     </rule>
@@ -141,6 +134,7 @@
             <property name="allowMultipleArguments" value="false"/>
         </properties>
         <!-- Allow content after a open parenthesis. smarty($template, [\n -->
+        <exclude name="PEAR.Functions.FunctionCallSignature.MultipleArguments"/>
         <exclude name="PEAR.Functions.FunctionCallSignature.ContentAfterOpenBracket"/>
         <!-- And the same for closing ]); -->
         <exclude name="PEAR.Functions.FunctionCallSignature.CloseBracketLine"/>

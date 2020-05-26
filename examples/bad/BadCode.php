@@ -1,14 +1,14 @@
 <?php
-/**
- * This is example code to confirm that the linter can run.
- */
 namespace Vendor\Package;
 
 use FooInterface;
 use BarClass as Bar;
 use OtherVendor\OtherPackage\BazClass;
 
-class Foo extends Bar implements FooInterface
+/**
+ * This code should display failures when sniffed
+ */
+class BadCode extends Bar implements FooInterface
 {
     public function sampleMethod($a, $b = null)
     {
